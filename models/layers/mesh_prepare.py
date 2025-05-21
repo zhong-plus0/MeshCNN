@@ -9,11 +9,11 @@ def fill_mesh(mesh2fill, file: str, opt):
         mesh_data = np.load(load_path, encoding='latin1', allow_pickle=True)
     else:
         mesh_data = from_scratch(file, opt)
-        np.savez_compressed(load_path, gemm_edges=mesh_data.gemm_edges, vs=mesh_data.vs, edges=mesh_data.edges,
-                            edges_count=mesh_data.edges_count, ve=mesh_data.ve, v_mask=mesh_data.v_mask,
-                            filename=mesh_data.filename, sides=mesh_data.sides,
-                            edge_lengths=mesh_data.edge_lengths, edge_areas=mesh_data.edge_areas,
-                            features=mesh_data.features)
+        # np.savez_compressed(load_path, gemm_edges=mesh_data.gemm_edges, vs=mesh_data.vs, edges=mesh_data.edges,
+        #                     edges_count=mesh_data.edges_count, ve=mesh_data.ve, v_mask=mesh_data.v_mask,
+        #                     filename=mesh_data.filename, sides=mesh_data.sides,
+        #                     edge_lengths=mesh_data.edge_lengths, edge_areas=mesh_data.edge_areas,
+        #                     features=mesh_data.features)
     mesh2fill.vs = mesh_data['vs']
     mesh2fill.edges = mesh_data['edges']
     mesh2fill.gemm_edges = mesh_data['gemm_edges']
